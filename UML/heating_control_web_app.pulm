@@ -1,8 +1,11 @@
-
 @startuml
 
+object App {
++ rooms_list: Room
+}
+
 object Room {
-- name: str
++ name: str
 + temperature: float
 + temp_plan: TemperaturePlan
 }
@@ -18,7 +21,7 @@ object Segment {
 - temp_max: float
 }
 
-
+App o-- Room
 Room <-- TemperaturePlan
 TemperaturePlan o-- Segment
 
