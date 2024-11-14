@@ -1,0 +1,25 @@
+
+@startuml
+
+object Room {
+- name: str
++ temperature: float
++ temp_plan: TemperaturePlan
+}
+
+object TemperaturePlan {
++ segments_list: list(Segment)
+}
+
+object Segment {
+- time_start: time
+- time_end: time
+- temp_min: float
+- temp_max: float
+}
+
+
+Room <-- TemperaturePlan
+TemperaturePlan o-- Segment
+
+@enduml
