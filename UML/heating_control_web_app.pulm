@@ -1,13 +1,13 @@
 @startuml
 
 object App {
-+ rooms_list: Room
++ rooms_list: list[Room]
 }
 
 object Room {
 + name: str
 + temperature: float
-+ temp_plan: TemperaturePlan
++ temp_plan: list[TemperaturePlan]
 }
 
 object TemperaturePlan {
@@ -21,7 +21,7 @@ object Segment {
 - temp_max: float
 }
 
-App o-- Room
+App "1" o-- "0..n" Room
 Room <-- TemperaturePlan
 TemperaturePlan o-- Segment
 
