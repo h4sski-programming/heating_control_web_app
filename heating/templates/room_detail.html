@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Room detail{% endblock %}
+
+{% block content %}
+
+<h3>Room details</h3>
+
+<table class="table">
+    <tr class="row">
+        <th class="col-2">Room name</th>
+        <td class="col">{{ room.name }}</td>
+    </tr>
+    <tr class="row">
+        <th class="col-2">Actual temp</th>
+        <td class="col">{{ room.temp_actual }}</td>
+    </tr>
+    <tr class="row">
+        <th class="col-2">Default temps</th>
+        <td class="col">{{ room.temp_default }}</td>
+    </tr>
+</table>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Rooms{% endblock %}
+
+{% block content %}
+
+<h3>Rooms</h3>
+
+<table class="table">
+    <tr class="row">
+        <th class="col">Room name</th>
+        <th class="col">Temp actual</th>
+        <th class="col">Temp default</th>
+    </tr>
+    {% for room in rooms %}
+    <tr class="row">
+        <td class="col"><a href="{% url 'room_detail' room.pk %}">{{ room.name }}</a></td>
+        <td class="col">{{ room.temp_actual }}</td>
+        <td class="col">{{ room.temp_default }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

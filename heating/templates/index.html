@@ -5,6 +5,44 @@
 {% block content %}
 
 <h3>{{ hello }}</h3>
-    
+
+
+<h3>Rooms</h3>
+
+<table class="table">
+    <tr class="row">
+        <th class="col">Room name</th>
+        <th class="col">Temp actual</th>
+        <th class="col">Temp default</th>
+    </tr>
+    {% for room in rooms %}
+    <tr class="row">
+        <td class="col"><a href="{% url 'hello' %}">{{ room.name }}</a></td>
+        <td class="col">{{ room.temp_actual }}</td>
+        <td class="col">{{ room.temp_default }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<h3>Temp segments</h3>
+
+<table class="table">
+    <tr class="row">
+        <th class="col">Time start</th>
+        <th class="col">Time end</th>
+        <th class="col">Temp min</th>
+        <th class="col">Temp max</th>
+    </th>
+    {% for ts in temp_segments %}
+    <tr class="row">
+        <td class="col">{{ ts.time_start }}</td>
+        <td class="col">{{ ts.time_end }}</td>
+        <td class="col">{{ ts.temp_min }}</td>
+        <td class="col">{{ ts.temp_max }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
 
 {% endblock %}

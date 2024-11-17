@@ -1,7 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
+
+from .models import Room, Temp_Segment
 
 
 class IndexView(TemplateView):
@@ -15,7 +17,21 @@ class IndexView(TemplateView):
         # Add additional context data
         ccc = {
             "hello": "Hello World!",
+            'rooms': Room.objects.all(),
+            'temp_segments': Temp_Segment.objects.all()
         }
         
         return {**context, **ccc}
         # return context.update(ccc)
+        
+
+class RoomsView(ListView):
+    model = Room
+    template_name = 'rooms.html'
+    context_object_name = 'rooms'
+    
+
+class RoomDetailView(DetailView):
+    model = Room
+    template_name = 'room_detail.html'
+    context_object_name = 'room'

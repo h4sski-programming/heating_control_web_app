@@ -1,28 +1,30 @@
 @startuml
 
 object App {
-+ rooms_list: list[Room]
++ rooms_list: list(Room)
 }
 
 object Room {
+- default_temp: float
+- temperature: float
 + name: str
-+ temperature: float
-+ temp_plan: list[TemperaturePlan]
++ temp_plan: list(TemperaturePlan)
 }
 
 object TemperaturePlan {
 + segments_list: list(Segment)
 }
 
-object Segment {
+object Temp_Segment {
 - time_start: time
 - time_end: time
 - temp_min: float
 - temp_max: float
 }
 
+
 App "1" o-- "0..n" Room
 Room <-- TemperaturePlan
-TemperaturePlan o-- Segment
+TemperaturePlan o-- Temp_Segment
 
 @enduml

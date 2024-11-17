@@ -16,10 +16,15 @@ Including another URLconf
 """
 from django.urls import path
 
-from heating.views import IndexView
+from heating.views import IndexView, RoomsView, RoomDetailView
 
 urlpatterns = [
-    path('', IndexView.as_view()),
-    path('hello', IndexView.as_view()),
-    path('world', IndexView.as_view()),
+    path('', IndexView.as_view(), name='index'),
+    path('hello', IndexView.as_view(), name='hello'),
+    
+    # Sidebar menu
+    path('rooms', RoomsView.as_view(), name='rooms'),
+    
+    # Detail views
+    path('room/<int:pk>', RoomDetailView.as_view(), name='room_detail')
 ]
