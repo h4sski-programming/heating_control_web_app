@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.urls import path
 
-from heating.views import IndexView, RoomsView, RoomDetailView
+from heating.views import IndexView, RoomsView, RoomDetailView, RoomFormView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -26,5 +26,8 @@ urlpatterns = [
     path('rooms', RoomsView.as_view(), name='rooms'),
     
     # Detail views
-    path('room/<int:pk>', RoomDetailView.as_view(), name='room_detail')
+    path('room/<int:pk>', RoomDetailView.as_view(), name='room_detail'),
+
+    # Room Form views
+    path('room/form', RoomFormView.as_view(), name='room_form'),
 ]

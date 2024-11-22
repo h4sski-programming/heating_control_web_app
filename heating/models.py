@@ -28,6 +28,9 @@ class Room(models.Model):
     def __str__(self) -> str:
         return self.name
 
+
+
+
 class Temp_Segment(models.Model):
     _time_start = models.TimeField(blank=False)
     _time_end = models.TimeField(blank=False)
