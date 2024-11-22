@@ -7,7 +7,7 @@
 <h3>{{ hello }}</h3>
 
 
-<h3>Rooms</h3>
+<h3><a href="{% url 'rooms' %}">Rooms</a></h3>
 
 <table class="table">
     <tr class="row">
@@ -17,9 +17,9 @@
     </tr>
     {% for room in rooms %}
     <tr class="row">
-        <td class="col"><a href="{% url 'hello' %}">{{ room.name }}</a></td>
-        <td class="col">{{ room.temp_actual }}</td>
-        <td class="col">{{ room.temp_default }}</td>
+        <td class="col"><a href="{% url 'room_detail' room.pk %}">{{ room.name }}</a></td>
+        <td class="col">{{ room.get_temp_actual }}</td>
+        <td class="col">{{ room.get_temp_default }}</td>
     </tr>
     {% endfor %}
 </table>

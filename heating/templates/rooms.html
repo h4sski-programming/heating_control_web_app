@@ -15,8 +15,8 @@
     {% for room in rooms %}
     <tr class="row">
         <td class="col"><a href="{% url 'room_detail' room.pk %}">{{ room.name }}</a></td>
-        <td class="col">{{ room.temp_actual }}</td>
-        <td class="col">{{ room.temp_default }}</td>
+        <td class="col">{{ room.get_temp_actual }}</td>
+        <td class="col">{{ room.get_temp_default }}</td>
     </tr>
     {% endfor %}
 </table>
